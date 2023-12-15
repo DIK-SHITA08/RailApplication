@@ -1,0 +1,12 @@
+# Dockerfile.db for the PostgreSQL container:
+# Use the official PostgreSQL image as a parent image
+FROM postgres:latest
+
+# Set the environment variables for PostgreSQL
+ENV POSTGRES_USER Dikshita
+ENV POSTGRES_PASSWORD railapp
+ENV POSTGRES_DB railapp_db
+
+# Expose port 5432 to the outside world
+EXPOSE 5432
+

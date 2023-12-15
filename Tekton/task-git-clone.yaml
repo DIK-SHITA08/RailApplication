@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: git-clone
+spec:
+  workspaces:
+    - name: output
+  steps:
+    - name: git-clone
+      image: alpine/git
+      script: |
+        git clone https://github.com/DIK-SHITA08/your-rails-app.git /workspace/output

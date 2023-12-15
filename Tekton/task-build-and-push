@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: build-and-push
+spec:
+  workspaces:
+    - name: source
+  steps:
+    - name: build-and-push
+      image: ubuntu:latest
+      script: |
+        cd /workspace/source
+        docker build -t disidesh/rails-app:latest .
+        docker login -u disidesh -p your-dockerhub-password
+        docker push disidesh/rails-app:latest

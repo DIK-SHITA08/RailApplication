@@ -1,0 +1,17 @@
+#docker-compose.yml file to define and run the services together:
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    links:
+      - db
+
+  db:
+    build: ./db
+    ports:
+      - "5432:5432"
